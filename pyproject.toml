@@ -1,5 +1,5 @@
 [project]
-name = "admin-bot"
+name = "contract-guard"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-admin-bot = "admin_bot:main"
+contract-guard = "contract_guard:main"
 
 [tool.uv]
 package = false
