@@ -6,6 +6,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import get_session
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 router = APIRouter()
 
 @router.get("/health")
@@ -20,5 +24,6 @@ async def readiness_check(
     try:
         await session.execute(text("SELECT 1"))
     except Exception:
+        logger.exception("readiness check failed")
         raise HTTPException(status_code=503, detail="database unavailable")
     return {"status": "ready"}
